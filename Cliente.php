@@ -77,6 +77,46 @@ public function muestraResumen(): void {
     echo "Total de alquileres: " . count($this->soportesAlquilados) . "<br>";
 }
 
+
+// añado el metodo devolver para comprobar que el soporte estaba alquilado ya y actualizar
+// la cantidad de soportes alquilados, tanto si esta alquilado como si no, muestra mensaje 
+
+public function devolver(int $numSoporte): bool {
+    foreach ($this->soportesAlquilados as $index => $soporte) {
+        if ($soporte->getNumero() === $numSoporte) {
+            unset($this->soportesAlquilados[$index]);
+            $this->numSoportesAlquilados--;
+            echo "Soporte con numero $numSoporte devuelto correctamente <br>";
+            return true;
+        
+    }
 }
+
+echo "Soporte con numero $numSoporte no estaba alquilado <br>";
+return false;
+
+} 
+
+// metodo listarAlquileres para informar de cuantos alquileres tiene el cliente
+
+public function listarAlquileres(): void {
+    $totalAlquileres = count($this->soportesAlquilados);
+    echo "el cliente $this->nombre tiene $totalAlquileres alquileres <br>";
+
+    foreach ($this->soportesAlquilados as $soporte) {
+        echo "Titulo: " . $soporte->getTitulo() . " Numero: " . $soporte->getNumero() . 
+        " Precio: " . $soporte->getPrecio() . " euros ";
+    }
+
+    if ($totalAlquileres === 0) {
+        echo "No tiene ningún soporte alquilado <br>";
+    }
+
+
+}
+
+}
+
+
 
 ?>
