@@ -27,10 +27,11 @@ public function getFormatPantalla(): string {
 
 public function muestraResumen() : string {
 
-$resumenPadre = parent::muestraResumen();
-return $resumenPadre . "<br> idiomas: " . $this->idiomas .
- "<br> y ". $this->formatPantalla.
-" como formato de pantalla";
+    return  "DVD - Título: $this->titulo,
+     Número: $this->numero, Precio: $this->precio
+      euros (IVA no incluido), Idiomas: $this->idiomas
+      , Formato de Pantalla: $this->formatPantalla";
+
 
 }
 }

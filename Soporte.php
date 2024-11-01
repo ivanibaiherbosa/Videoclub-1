@@ -1,9 +1,12 @@
 <?php
-class Soporte {
+
+include_once "Interface.php";
+
+abstract class Soporte {
 
 public string $titulo;
 protected int $numero;
-private float $precio;
+protected float $precio;
 private const IVA = 0.21;
 private float $precioConIva;
 
@@ -29,10 +32,9 @@ public function __construct(string $titulo, int $numero, float $precio) {
         return $this->precio;
     }
 
-    public function muestraResumen() : string {
-        return $this->precio . " euros (IVA no incluido)";
-    }
-    
+    abstract public function muestraResumen(): string;
+
+   
     public function getPrecioConIva() : float {
         return $this->precioConIva;
     }

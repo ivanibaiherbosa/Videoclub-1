@@ -14,14 +14,14 @@ $this->duracion = $duracion;
 
 }
 
-public function getDuracion(): int {
-    return $this->duracion;
-}
 
 public function muestraResumen() : string {
-
-    $resumenPadre = parent::muestraResumen();
-    return $resumenPadre . "<br> duracion: " . $this->duracion . "minutos";
+    return "Cinta de Video - Título: 
+     $this->titulo, Número:
+     $this->numero, Precio:
+     $this->precio euros (IVA no incluido), Duración: 
+     $this->duracion minutos<br>";
+  
 }
 
 }
